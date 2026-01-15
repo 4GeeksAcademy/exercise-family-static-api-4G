@@ -13,17 +13,23 @@ class FamilyStructure:
         self._members= [
             {
                 "first_name": "John",
+                "last_name": self.last_name,
                 "age": 33,
+                "id": self._generate_id(),
                 "lucky_numbers": [7, 13, 22]
             },
             {
                 "first_name": "Jane", 
+                "last_name": self.last_name,
                 "age": 35,
+                "id": self._generate_id(),
                 "lucky_numbers": [10, 14, 3]
             },
             {
                 "first_name": "Jimmy",
+                "last_name": self.last_name,
                 "age": 5,
+                "id": self._generate_id(),
                 "lucky_numbers": [1]
             }
         ]
@@ -49,13 +55,11 @@ class FamilyStructure:
         for i, member in enumerate(self._members):
             if member["id"] == id:
                 return self._members.pop(i)
-            return None
 
     def get_member(self, id):
        for member in self._members:
            if member ["id"] == id:
                return member
-           return None
 
     # This method is done, it returns a list with all the family members
     def get_all_members(self):

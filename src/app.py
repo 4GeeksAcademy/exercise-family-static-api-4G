@@ -36,7 +36,7 @@ def handle_hello():
     return jsonify(members), 200
 
 
-@app.route('/member/<int:member_id>', methods=['GET'])
+@app.route('/members/<int:member_id>', methods=['GET'])
 def get_one_member(member_id):
     member = jackson_family.get_member(member_id)
 
@@ -46,7 +46,7 @@ def get_one_member(member_id):
         return jsonify({"error": "Member not found"}), 404
 
 
-@app.route('/member', methods=['POST'])
+@app.route('/members', methods=['POST'])
 def add_new_member():
     data = request.get_json()
 
@@ -62,11 +62,11 @@ def add_new_member():
     response_body = {
     "message": "Member added successfully",
     "member": new_member
-}
+    }
     return jsonify(response_body), 201
 
 
-@app.route('/member/<int:member_id>', methods=['DELETE'])
+@app.route('/members/<int:member_id>', methods=['DELETE'])
 def delete_member(member_id):
     # Delete a family member by ID
     deleted_member = jackson_family.delete_member(member_id)
